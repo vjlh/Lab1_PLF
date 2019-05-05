@@ -120,6 +120,12 @@ void analizarArchivo(const char *nombre_entrada,const char *nombre_salida)
                                     i++;
                                 }
                             }
+                            else if(k == 17){
+                                if(palabra[i+1]=='u' && palabra[i+2]=='b' && palabra[i+3]=='l' && palabra[i+4]=='e'){
+                                    k = 35;
+                                    i++;
+                                }
+                            }
                             fprintf(archivo_salida, "%s\n",sintaxisMayus[k]);
                             j= -1;
                             k = 54;
