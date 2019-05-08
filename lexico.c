@@ -24,7 +24,7 @@ void analizarArchivo(const char *nombre_entrada,const char *nombre_salida)
     char sintaxis[54][10] = {"main","(",")","{","}",",",";","auto","extern","register","static","*","=","break","continue","default",":","do","while","for","goto","if","else","return","&","-","|","~","sizeof","short","unsigned","long","int","float","char","double","==","!=","<",">","<=",">=","&&","||","!","?","+","/","%","^","<<",">>","++","--"};
     char sintaxisMayus[54][10] = {"MAIN","(",")","{","}",",",";","AUTO","EXTERN","REGISTER","STATIC","*","=","BREAK","CONTINUE","DEFAULT",":","DO","WHILE","FOR","GOTO","IF","ELSE","RETURN","&","-","|","~","SIZEOF","SHORT","UNSIGNED","LONG","INT","FLOAT","CHAR","DOUBLE","==","!=","<",">","<=",">=","&&","||","!","?","+","/","%","^","<<",">>","++","--"};
     char buffer[500],*palabra,*pal;
-
+    int j, pivote, i, k;
     archivo_entrada = fopen(nombre_entrada,"r");
     archivo_salida = fopen(nombre_salida,"r");
 
@@ -50,15 +50,15 @@ void analizarArchivo(const char *nombre_entrada,const char *nombre_salida)
         while(palabra != NULL)
         {
             pal = (char*)calloc(strlen(palabra),sizeof(char));
-            int j = 0;
-            int pivote = 0;
+            j = 0;
+            pivote = 0;
             if(palabra!=NULL)
             {
-                for (int i = 0; i < strlen(palabra); ++i)
+                for (i = 0; i < strlen(palabra); ++i)
                 {
                     pal[j] = palabra[i];
                     
-                    for (int k = 0; k < 54; ++k)
+                    for (k = 0; k < 54; ++k)
                     {
                         if(strcmp(pal,sintaxis[k])==0)
                         {
